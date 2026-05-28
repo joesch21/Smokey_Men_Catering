@@ -1,0 +1,79 @@
+# Thread Handover
+
+This is the running continuity log for LLM-assisted build threads.
+
+## Phase 0 — Control Layer MVP Created
+
+Date: 2026-05-28
+
+Purpose:
+- Add lightweight Tower-style continuity files for Smokey Men Catering app.
+- Preserve current visual direction while allowing controlled additive builds.
+- Give future LLM threads enough repo state to continue without drifting.
+
+Current app shape:
+- React frontend with Menus, Ingredients, and Costings pages.
+- Express backend API on port 3001.
+- In-memory seed data.
+- Strong CSS token/design system already present.
+
+Guardrail decision:
+- This app does not need full Tower-level governance yet.
+- It does need bootloader, repo state, operator workflow, drift control, design guardrails, and a repeatable validation check.
+
+Known gap:
+- Confirm `frontend/src/components/UI.jsx` exists in the actual repo because uploaded pages import shared UI primitives from it.
+
+Next recommended phase:
+- Phase 1 should inspect actual repo layout and install these files without touching app behavior.
+
+## Phase 1 — Packages Surface and Image Sizing Docs Alignment
+
+Date: 2026-05-28
+
+Purpose:
+- Align lightweight control docs with the current app surface after Packages and package detail work.
+- Record that package hero/card image sizing was adjusted to reduce visual dominance.
+- Correct app naming from the earlier placeholder typo to Smokey Men Catering.
+
+Current app shape:
+- Public Packages overview and detail pages.
+- Menus, Ingredients, and Costings pages.
+- React/Vite frontend with Express backend and in-memory MVP data.
+- Packages remain frontend-driven from packagesData.js for now.
+
+Validation expected:
+- git diff --check once inside the actual Git repo.
+- npm --prefix frontend run build.
+- Manual review of package hero/detail image proportions.
+
+Known issue:
+- Current shell reported NOT INSIDE A GIT REPO from ~/pill-factory-menus, so Git validation may require moving to the actual repo root or initialising Git.
+
+Next recommended phase:
+- Confirm whether ~/pill-factory-menus should be the Git repo root.
+- Then inspect whether Packages should remain frontend-only for now or whether a proposal is needed before moving package content into the backend API.
+
+## Phase 1B — Rename App Identity and Create Git Baseline
+
+Date: 2026-05-28
+
+Purpose:
+- Rename the application identity to Smokey Men Catering.
+- Prepare the project for its first Git baseline.
+- Keep the existing app structure, visual language, and control docs intact.
+
+Current app shape:
+- Public packages overview and package detail pages.
+- Menus, Ingredients, and Costings pages.
+- React/Vite frontend with Express backend and in-memory MVP data.
+
+Boundary:
+- Rename only.
+- No architecture change.
+- No persistence, auth, router, or design-system replacement.
+
+Next recommended phase:
+- Commit the clean baseline.
+- Then continue with small additive package/content/UI improvements.
+

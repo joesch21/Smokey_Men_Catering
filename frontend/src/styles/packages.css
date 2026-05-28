@@ -1,0 +1,557 @@
+/* ================================================================
+   Smokey Men Catering — PackageDetailPage v2 styles
+   Append to frontend/src/index.css after existing packages block.
+   Variable names match the live project exactly.
+   ================================================================ */
+
+.psd-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem 5rem;
+}
+
+/* ── Back button ── */
+.psd-back-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.15s;
+}
+.psd-back-btn:hover { color: var(--text-primary); }
+
+/* ── Hero ── */
+.psd-hero {
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  border: 0.5px solid var(--border);
+}
+
+.psd-hero-img-wrap {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.psd-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.psd-hero-img-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.08) 0%,
+    rgba(0,0,0,0.55) 100%
+  );
+}
+
+.psd-hero-overlay-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.psd-hero-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.psd-hero-title {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+}
+
+.psd-hero-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
+  margin: 0;
+}
+
+/* ── Stats bar ── */
+.psd-stats-bar {
+  background: var(--bg-card);
+  display: flex;
+  align-items: stretch;
+  padding: 0;
+  border-top: 0.5px solid var(--border);
+}
+
+.psd-stat-block {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.psd-stat-divider {
+  width: 0.5px;
+  background: var(--border);
+  align-self: stretch;
+}
+
+.psd-stat-label {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.psd-stat-value {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.psd-stat-unit {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+
+/* ── Body layout ── */
+.psd-body {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ── Section ── */
+.psd-section {
+  padding-bottom: 2rem;
+  border-bottom: 0.5px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.psd-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.psd-section-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1rem;
+}
+
+.psd-section-body {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0 0 1rem;
+}
+
+.psd-lead-text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ── Pricing tiers ── */
+.psd-tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
+.psd-tier-card {
+  background: var(--bg-card);
+  border: 0.5px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.psd-tier-featured {
+  border-width: 1.5px;
+}
+
+.psd-tier-badge {
+  position: absolute;
+  top: -11px;
+  left: 1rem;
+  font-size: 0.65rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.psd-tier-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0.25rem 0 0;
+}
+
+.psd-tier-guests {
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  color: var(--text-tertiary);
+  margin: 0;
+}
+
+.psd-tier-price {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0.4rem 0 0.15rem;
+  line-height: 1;
+}
+
+.psd-tier-price-unit {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+
+.psd-tier-desc {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ── Includes ── */
+.psd-includes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.psd-include-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  line-height: 1.45;
+}
+
+.psd-include-tick {
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.psd-include-text { flex: 1; }
+
+/* ── Seasonal menus section ── */
+.psd-seasons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.psd-season-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg-card);
+  border: 0.5px solid;
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+  text-align: left;
+}
+
+.psd-season-card:hover {
+  background: var(--bg-secondary);
+  transform: translateY(-1px);
+}
+
+.psd-season-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.psd-season-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+}
+
+.psd-season-name {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.psd-season-months {
+  font-family: var(--font-body);
+  font-size: 0.73rem;
+  color: var(--text-tertiary);
+}
+
+.psd-season-arrow {
+  font-size: 0.9rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.psd-season-note {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  line-height: 1.55;
+  margin: 0;
+  font-style: italic;
+}
+
+/* ── Right column ── */
+.psd-side-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: sticky;
+  top: 80px;
+}
+
+.psd-side-card {
+  background: var(--bg-card);
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.psd-side-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.9rem;
+}
+
+/* Add-ons */
+.psd-addons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.psd-addon-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.6rem 0;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.psd-addon-row:last-child { border-bottom: none; }
+
+.psd-addon-name {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--text-primary);
+  flex: 1;
+  line-height: 1.4;
+}
+
+.psd-addon-price {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* CTA card */
+.psd-cta-card {
+  background: var(--bg-card);
+  border: 0.5px solid;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.psd-cta-accent-bar {
+  height: 4px;
+  width: 100%;
+}
+
+.psd-cta-inner {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.psd-cta-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.psd-cta-body {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* Buttons */
+.psd-btn-primary {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.psd-btn-primary:hover { opacity: 0.85; }
+
+.psd-btn-outline {
+  display: block;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-primary);
+  border: 0.5px solid var(--border);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.psd-btn-outline:hover { background: var(--bg-secondary); }
+
+/* Craft card */
+.psd-craft-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.psd-craft-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.psd-craft-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.psd-craft-label {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 1px;
+}
+
+.psd-craft-detail {
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  color: var(--text-tertiary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .psd-body {
+    grid-template-columns: 1fr;
+  }
+  .psd-side-col {
+    position: static;
+  }
+  .psd-hero-img-wrap {
+    height: 180px;
+  }
+  .psd-hero-title {
+    font-size: 1.8rem;
+  }
+  .psd-stats-bar {
+    flex-wrap: wrap;
+  }
+  .psd-stat-block {
+    flex: 1 1 45%;
+    padding: 0.75rem 1rem;
+  }
+  .psd-stat-divider { display: none; }
+  .psd-includes-grid {
+    grid-template-columns: 1fr;
+  }
+  .psd-seasons-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .psd-page { padding: 1rem 1rem 3rem; }
+  .psd-tiers-grid { grid-template-columns: 1fr; }
+}

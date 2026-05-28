@@ -1,0 +1,128 @@
+{
+  "schema": "pill_factory.repo_state.v1",
+  "last_updated": "2026-05-28",
+  "application": {
+    "name": "Smokey Men Catering",
+    "stage": "MVP draft",
+    "purpose": "Seasonal catering, package, menu, and costing management for Smokey Men Catering.",
+    "current_product_shape": [
+      "Public catering packages overview and package detail pages",
+      "Seasonal menu cards",
+      "Ingredient catalogue by season",
+      "Costing model with package and seasonal variance tables"
+    ]
+  },
+  "runtime": {
+    "backend": {
+      "stack": "Node.js Express ES modules",
+      "port": 3001,
+      "entry": "backend/src/index.js or current server index.js"
+    },
+    "frontend": {
+      "stack": "React + Vite",
+      "entry": "frontend/src/main.jsx or current src/main.jsx",
+      "api_base": "/api"
+    },
+    "data": {
+      "mode": "in-memory seed data",
+      "persistence": "not yet implemented"
+    }
+  },
+  "current_frontend_contract": {
+    "pages": [
+      "packages",
+      "package detail",
+      "menus",
+      "ingredients",
+      "costings"
+    ],
+    "navigation": "Header page switch state plus package detail selection; no router yet",
+    "shared_components_expected": [
+      "Header",
+      "SeasonTabs",
+      "UI primitives: Card, Badge, Btn, Modal, FormField, SectionLabel, MetricCard, Toast, useConfirm"
+    ],
+    "design_tokens_source": "frontend/src/index.css or current src/index.css"
+  },
+  "design_guardrails": {
+    "font_display": "Playfair Display, Georgia, serif",
+    "font_body": "DM Sans, system-ui, sans-serif",
+    "visual_language": "warm editorial hospitality dashboard, low-noise cards, seasonal accent colours, thin borders, restrained shadows",
+    "protected_files": [
+      "frontend/src/index.css or current src/index.css",
+      "frontend/src/components/Header.jsx",
+      "frontend/src/components/SeasonTabs.jsx"
+    ],
+    "rule": "Do not replace the visual system unless the operator explicitly asks. Add components using existing CSS variables and visual rhythm."
+  },
+  "api_contract": {
+    "health": "GET /api/health",
+    "seasons": [
+      "GET /api/seasons",
+      "PUT /api/seasons/:id"
+    ],
+    "ingredients": [
+      "GET /api/ingredients?seasonId=...",
+      "POST /api/ingredients",
+      "PUT /api/ingredients/:id",
+      "DELETE /api/ingredients/:id"
+    ],
+    "menus": [
+      "GET /api/menus?seasonId=...",
+      "POST /api/menus",
+      "PUT /api/menus/:id",
+      "DELETE /api/menus/:id"
+    ],
+    "costings": [
+      "GET /api/costings",
+      "PUT /api/costings"
+    ]
+  },
+  "known_gaps": [
+    "Persistence is not yet implemented; backend mutates in-memory db.",
+    "Auth is not implemented.",
+    "Uploaded file set references UI.jsx primitives but UI.jsx was not included in the upload; confirm it exists in repo before building.",
+    "No automated tests were supplied yet.",
+    "No package.json/vite config were supplied in this upload.",
+    "Packages are currently frontend-driven from packagesData.js and not yet backed by API persistence.",
+    "Recent package hero/card image sizing was adjusted in frontend/src/styles/packages.css; preserve editorial image proportions in future UI patches."
+  ],
+  "llm_build_policy": {
+    "default_change_type": "small additive patch",
+    "preferred_patch_method": "bounded Python heredoc from repo root, or PowerShell file writer on Windows",
+    "must_read_before_code": [
+      "ai_boot/AI_BOOTLOADER.md",
+      "ai_boot/REPO_STATE.json",
+      "ai_boot/docs/OPERATOR_WORKFLOW.md",
+      "ai_boot/docs/DESIGN_GUARDRAILS.md",
+      "ai_boot/docs/DRIFT_CONTROL.md"
+    ],
+    "must_update_when_changed": [
+      "ai_boot/REPO_STATE.json",
+      "ai_boot/docs/THREAD_HANDOVER.md"
+    ],
+    "hard_no": [
+      "visual redesign by default",
+      "renaming core pages without approval",
+      "replacing current CSS tokens",
+      "large refactors before inspection",
+      "adding persistence/auth without a proposal note"
+    ]
+  },
+  "validation": {
+    "minimum_before_commit": [
+      "git diff --check",
+      "node ai_boot/scripts/check-control-plane.mjs",
+      "npm run build or npm --prefix frontend run build",
+      "node --check backend entry if backend exists"
+    ],
+    "manual_review": [
+      "visual style still matches current app",
+      "API paths unchanged unless documented",
+      "THREAD_HANDOVER records phase and validation"
+    ]
+  },
+  "notes": [
+    "Application identity renamed to Smokey Men Catering before initial Git baseline."
+  ]
+}
