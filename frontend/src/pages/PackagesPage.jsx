@@ -6,11 +6,29 @@ import { packages } from "../data/packagesData.js";
 import "../styles/packages.css";
 
 const packageImages = {
-  "weekend-bbq":       "/bundanoonnight.png",
-  "corporate-weekday": "/preview.webp",
-  "midweek-dinner":    "/smoker.webp",
-  "birthday-dinner":   "/meat2.webp",
-  "wedding":           "/BeefCutBrisket-1024x611_jpg.webp",
+  "weekend-bbq": {
+    src: "/bundanoonnight.png",
+    alt: "Bundanoon evening atmosphere anchoring a relaxed Southern Highlands smoked catering package",
+    caption: "Bundanoon / Southern Highlands",
+  },
+  "corporate-weekday": {
+    src: "/preview.webp",
+    alt: "Polished smoked catering presentation for corporate lunches, client events and weekday team meals",
+    caption: "Corporate / Weekday Service",
+  },
+  "midweek-dinner": {
+    src: "/smoker.webp",
+    alt: "Hardwood smoker working low and slow for an intimate midweek shared dinner",
+    caption: "Hardwood / Low & Slow",
+  },
+  "birthday-dinner": {
+    src: "/meat2.webp",
+    alt: "Celebration smoked meat centrepiece for a birthday dinner table",
+  },
+  "wedding": {
+    src: "/BeefCutBrisket-1024x611.jpg.webp",
+    alt: "Premium smoked brisket suited to a Southern Highlands wedding feast",
+  },
 };
 
 // Accent colours per package — maps to existing CSS vars
@@ -29,11 +47,11 @@ export default function PackagesPage({ onSelectPackage }) {
       {/* ── Page Hero Banner ── */}
       <div className="ps-page-hero">
         <div className="ps-page-hero-inner">
-          <p className="ps-page-eyebrow">Smoked catering packages</p>
-          <h1 className="ps-page-title">Choose the right smokehouse package for your event</h1>
+          <p className="ps-page-eyebrow">Bundanoon smokehouse catering</p>
+          <h1 className="ps-page-title">Fire. Meat. Smoke. Gathering.</h1>
           <p className="ps-page-lead">
-            From backyard birthdays to weddings and corporate lunches — clear guest ranges,
-            simple per-head pricing, and hardwood-smoked menus built for the Southern Highlands.
+            Smoked catering packages for Southern Highlands events — from backyard feasts
+            to weddings, birthdays and corporate tables.
           </p>
           <div className="ps-craft-row">
             <CraftPill icon="🔥" label="Australian hardwood" />
@@ -44,22 +62,32 @@ export default function PackagesPage({ onSelectPackage }) {
       </div>
 
       {/* ── Featured (Weekend) large card ── */}
+      <section className="ps-choice-intro" aria-label="Package selection guide">
+        <p className="ps-choice-kicker">Start with the occasion</p>
+        <h2 className="ps-choice-title">A machine of fire, time and appetite — tuned to the event.</h2>
+      </section>
+
       <div className="ps-featured-wrap">
         <FeaturedCard
           pkg={packages[0]}
-          imgSrc={packageImages[packages[0].id]}
+          image={packageImages[packages[0].id]}
           accent={accentHex[packages[0].id]}
           onSelect={() => onSelectPackage(packages[0].id)}
         />
       </div>
 
       {/* ── Secondary cards grid (remaining 4) ── */}
+      <div className="ps-section-heading">
+        <p className="ps-section-kicker">More ways to feed the gathering</p>
+        <h2 className="ps-section-title">Choose by service style</h2>
+      </div>
+
       <div className="ps-secondary-grid">
         {packages.slice(1).map((pkg) => (
           <SecondaryCard
             key={pkg.id}
             pkg={pkg}
-            imgSrc={packageImages[pkg.id]}
+            image={packageImages[pkg.id]}
             accent={accentHex[pkg.id]}
             onSelect={() => onSelectPackage(pkg.id)}
           />
@@ -88,14 +116,14 @@ export default function PackagesPage({ onSelectPackage }) {
 }
 
 /* ── Featured large card ── */
-function FeaturedCard({ pkg, imgSrc, accent, onSelect }) {
+function FeaturedCard({ pkg, image, accent, onSelect }) {
   return (
     <article className="ps-featured-card" onClick={onSelect}
       tabIndex={0} role="button" aria-label={`View ${pkg.title} package`}
       onKeyDown={(e) => e.key === "Enter" && onSelect()}
     >
       <div className="ps-featured-img-wrap">
-        <img src={imgSrc} alt={pkg.title} className="ps-featured-img" loading="lazy" />
+        <img src={image.src} alt={image.alt} className="ps-featured-img" loading="lazy" />
         <div className="ps-featured-img-overlay" />
         <span className="ps-featured-badge" style={{ background: accent }}>
           {pkg.tag}
@@ -130,7 +158,7 @@ function FeaturedCard({ pkg, imgSrc, accent, onSelect }) {
         </div>
         <button className="ps-btn-primary" style={{ background: accent, borderColor: accent }}
           onClick={(e) => { e.stopPropagation(); onSelect(); }}>
-          View full package →
+          Explore this package →
         </button>
       </div>
     </article>
@@ -138,7 +166,7 @@ function FeaturedCard({ pkg, imgSrc, accent, onSelect }) {
 }
 
 /* ── Secondary card ── */
-function SecondaryCard({ pkg, imgSrc, accent, onSelect }) {
+function SecondaryCard({ pkg, image, accent, onSelect }) {
   const lowestPrice = Math.min(...pkg.packages.map(p => p.pricePerHead));
   return (
     <article className="ps-secondary-card" onClick={onSelect}
@@ -146,7 +174,7 @@ function SecondaryCard({ pkg, imgSrc, accent, onSelect }) {
       onKeyDown={(e) => e.key === "Enter" && onSelect()}
     >
       <div className="ps-secondary-img-wrap">
-        <img src={imgSrc} alt={pkg.title} className="ps-secondary-img" loading="lazy" />
+        <img src={image.src} alt={image.alt} className="ps-secondary-img" loading="lazy" />
         <span className="ps-secondary-badge" style={{ background: accent }}>{pkg.tag}</span>
       </div>
       <div className="ps-secondary-body">
@@ -170,7 +198,7 @@ function SecondaryCard({ pkg, imgSrc, accent, onSelect }) {
             </div>
           ))}
         </div>
-        <span className="ps-card-cta" style={{ color: accent }}>View package →</span>
+        <span className="ps-card-cta" style={{ color: accent }}>Explore package →</span>
       </div>
     </article>
   );

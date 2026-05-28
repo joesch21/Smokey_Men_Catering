@@ -36,7 +36,7 @@ const HERO_IMAGES = {
   "corporate-weekday": "/preview.webp",
   "midweek-dinner":    "/australianhardwood.webp",
   "birthday-dinner":   "/meat2.webp",
-  "wedding":           "/BeefCutBrisket-1024x611_jpg.webp",
+  "wedding":           "/BeefCutBrisket-1024x611.jpg.webp",
 };
 
 export default function PackageDetailPage({ packageId, onBack, onViewMenus }) {

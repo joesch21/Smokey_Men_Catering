@@ -678,3 +678,165 @@
     max-height: 120px;
   }
 }
+
+/* Weekend regional image anchor */
+.ps-image-caption {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  max-width: calc(100% - 2rem);
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(30, 24, 19, 0.72);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+}
+
+/* Secondary card regional/service image captions */
+.ps-image-caption-secondary {
+  left: 0.75rem;
+  bottom: 0.75rem;
+  max-width: calc(100% - 1.5rem);
+  padding: 0.28rem 0.58rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.07em;
+}
+
+/* Phase 3B — Packages landing composition polish */
+.ps-choice-intro {
+  max-width: 760px;
+  margin: 1.75rem 0 1rem;
+  padding: 1rem 0 0.25rem;
+}
+
+.ps-choice-kicker,
+.ps-section-kicker {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.ps-choice-title {
+  max-width: 720px;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.ps-choice-copy {
+  max-width: 680px;
+  margin: 0.7rem 0 0;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.ps-section-heading {
+  margin: 2rem 0 0.85rem;
+  padding-top: 0.9rem;
+  border-top: 0.5px solid var(--border);
+}
+
+.ps-section-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+@media (max-width: 760px) {
+  .ps-choice-intro {
+    margin-top: 1.25rem;
+  }
+}
+
+/* Phase 3C — Strategic packages overview refactor */
+.ps-page-hero {
+  margin-bottom: 2rem;
+}
+
+.ps-page-title {
+  max-width: 640px;
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+.ps-page-lead {
+  max-width: 580px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.ps-choice-intro {
+  max-width: 680px;
+  margin: 1.35rem 0 1.1rem;
+  padding: 0;
+}
+
+.ps-choice-title {
+  max-width: 620px;
+  font-size: clamp(1.55rem, 3vw, 2.45rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.ps-choice-copy {
+  display: none;
+}
+
+.ps-featured-card {
+  align-items: stretch;
+}
+
+.ps-featured-desc {
+  max-width: 560px;
+  font-size: 0.92rem;
+  line-height: 1.52;
+}
+
+.ps-featured-includes {
+  margin-top: 0.75rem;
+}
+
+.ps-btn-primary {
+  min-height: 44px;
+  padding: 0.8rem 1.15rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ps-card-cta {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.65rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ps-image-caption,
+.ps-image-caption-secondary {
+  display: none;
+}
