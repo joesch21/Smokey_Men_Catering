@@ -101,6 +101,44 @@ export default function CostingsPage() {
 
   return (
     <div>
+      <Card style={{
+        marginBottom: '1.5rem',
+        padding: '1rem 1.25rem',
+        background: 'linear-gradient(135deg, rgba(255,250,242,0.98), rgba(246,230,204,0.65))',
+        borderColor: 'rgba(104, 67, 43, 0.18)',
+      }}>
+        <p style={{
+          margin: '0 0 0.35rem',
+          fontSize: 11,
+          fontWeight: 700,
+          letterSpacing: '0.09em',
+          textTransform: 'uppercase',
+          color: 'var(--text-tertiary)',
+        }}>
+          Pricing sanity note
+        </p>
+        <h2 style={{
+          margin: 0,
+          fontFamily: 'var(--font-display)',
+          fontSize: 22,
+          fontWeight: 400,
+          color: 'var(--text-primary)',
+        }}>
+          Public package prices are entry bands; full-service venue work needs separate costing.
+        </h2>
+        <p style={{
+          margin: '0.55rem 0 0',
+          maxWidth: 820,
+          fontSize: 13,
+          lineHeight: 1.55,
+          color: 'var(--text-secondary)',
+        }}>
+          Use the public Packages page for starting prices. Use this Costings page for 36-pax residential,
+          celebration and Pill Factory-style work where labour, transport, equipment, linen, risk buffer and
+          service format materially change the sell price.
+        </p>
+      </Card>
+
       {/* Summary */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(180px,1fr))', gap: 10, marginBottom: '1.5rem' }}>
         <MetricCard label="Package A sell price" value={sellA ? `${fmt(sellA.low)}–${fmt(sellA.high)}` : '—'} sub="Full weekend, 36 pax" />

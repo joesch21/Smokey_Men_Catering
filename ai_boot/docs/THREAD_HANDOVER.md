@@ -146,3 +146,29 @@ Validation expected:
 - `git diff --check`.
 - `npm --prefix frontend run build`.
 
+## Phase 4B — Pricing and Costing Alignment
+
+Date: 2026-05-28
+
+Purpose:
+- Align public package price bands with more realistic staffed-service economics.
+- Add a Costings page note clarifying that public package prices are entry bands while full-service venue work requires separate costing.
+
+Completed:
+- Raised Packages page starting prices and package tier prices in `frontend/src/data/packagesData.js`.
+- Added a pricing sanity note to `frontend/src/pages/CostingsPage.jsx`.
+- Preserved backend API shape and in-memory costing structure.
+
+Boundary:
+- Frontend data/content alignment only.
+- No backend route changes.
+- No persistence, auth, router, or costing engine refactor.
+
+Validation expected:
+- `git diff --check`.
+- `python3 -m json.tool ai_boot/REPO_STATE.json`.
+- `npm --prefix frontend run build`.
+
+Next recommended phase:
+- Consider a future costing model split into food, labour, transport/equipment, linen/consumables, risk buffer, target margin and recommended sell price per head.
+
