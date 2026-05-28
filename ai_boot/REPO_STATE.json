@@ -42,7 +42,10 @@
       "SeasonTabs",
       "UI primitives: Card, Badge, Btn, Modal, FormField, SectionLabel, MetricCard, Toast, useConfirm"
     ],
-    "design_tokens_source": "frontend/src/index.css or current src/index.css"
+    "design_tokens_source": "frontend/src/index.css or current src/index.css",
+    "notes": [
+      "Packages page now uses sales-led copy and reduced image dominance while preserving the warm editorial visual system."
+    ]
   },
   "design_guardrails": {
     "font_display": "Playfair Display, Georgia, serif",
@@ -124,5 +127,11 @@
   },
   "notes": [
     "Application identity renamed to Smokey Men Catering before initial Git baseline."
-  ]
+  ],
+  "git": {
+    "remote": "https://github.com/joesch21/Smokey_Men_Catering.git",
+    "branch": "main",
+    "latest_pushed_commit": "5aa2a89",
+    "baseline_status": "Initial GitHub baseline pushed; packages page sales polish included."
+  }
 }

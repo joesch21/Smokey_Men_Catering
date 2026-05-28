@@ -77,3 +77,29 @@ Next recommended phase:
 - Commit the clean baseline.
 - Then continue with small additive package/content/UI improvements.
 
+## Phase 2 — GitHub Baseline and Packages Sales Polish
+
+Date: 2026-05-28
+
+Purpose:
+- Confirm the Smokey Men Catering repository has been initialised and pushed to GitHub.
+- Record the packages page media/sales polish.
+- Preserve the existing editorial hospitality design while reducing image dominance on the Packages page.
+
+Completed:
+- Git remote configured: https://github.com/joesch21/Smokey_Men_Catering.git
+- main branch pushed and tracking origin/main.
+- Latest pushed commit: 5aa2a89.
+- Packages page copy changed to be more sales-led.
+- Packages page image sizing reduced so package details, pricing, inclusions, and CTA carry the sale.
+- Header now displays Smokey Men Catering without the duplicate Catering label.
+
+Validation:
+- npm --prefix frontend run build passed.
+- frontend/dist was confirmed not staged.
+- Working tree clean after push.
+
+Next recommended phase:
+- Review the live Packages page visually.
+- Then make one small content or CTA improvement at a time.
+
