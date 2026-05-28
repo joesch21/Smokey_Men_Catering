@@ -555,3 +555,126 @@
   .psd-page { padding: 1rem 1rem 3rem; }
   .psd-tiers-grid { grid-template-columns: 1fr; }
 }
+
+
+/* === Smokey Men package sales layout override === */
+/* Senior media direction:
+   Packages page should sell offers first. Images support appetite and mood,
+   but pricing, guest range, inclusions, and CTA carry the decision.
+*/
+
+.ps-packages-page {
+  padding-bottom: 4rem;
+}
+
+.ps-page-hero {
+  margin-bottom: 1.25rem;
+}
+
+.ps-page-hero-inner {
+  padding: 1.5rem 1.75rem;
+}
+
+.ps-page-eyebrow {
+  margin-bottom: 0.35rem;
+}
+
+.ps-page-title {
+  max-width: 760px;
+}
+
+.ps-page-lead {
+  max-width: 760px;
+}
+
+.ps-featured-wrap {
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.ps-featured-card {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.82fr) minmax(0, 1.18fr);
+  align-items: stretch;
+}
+
+.ps-featured-img-wrap {
+  height: 260px;
+  min-height: 260px;
+  max-height: 260px;
+}
+
+.ps-featured-img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.ps-featured-body {
+  padding: 1.25rem 1.4rem;
+}
+
+.ps-featured-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ps-secondary-grid {
+  gap: 1rem;
+}
+
+.ps-secondary-img-wrap {
+  height: 145px;
+  min-height: 145px;
+  max-height: 145px;
+}
+
+.ps-secondary-img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.ps-secondary-body {
+  padding: 1rem 1.05rem 1.1rem;
+}
+
+.ps-secondary-subtitle {
+  min-height: auto;
+}
+
+@media (max-width: 900px) {
+  .ps-featured-card {
+    grid-template-columns: 1fr;
+  }
+
+  .ps-featured-img-wrap {
+    height: 190px;
+    min-height: 190px;
+    max-height: 190px;
+  }
+
+  .ps-secondary-img-wrap {
+    height: 130px;
+    min-height: 130px;
+    max-height: 130px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ps-page-hero-inner {
+    padding: 1.2rem;
+  }
+
+  .ps-featured-img-wrap {
+    height: 165px;
+    min-height: 165px;
+    max-height: 165px;
+  }
+
+  .ps-secondary-img-wrap {
+    height: 120px;
+    min-height: 120px;
+    max-height: 120px;
+  }
+}

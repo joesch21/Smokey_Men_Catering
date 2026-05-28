@@ -29,11 +29,11 @@ export default function PackagesPage({ onSelectPackage }) {
       {/* ── Page Hero Banner ── */}
       <div className="ps-page-hero">
         <div className="ps-page-hero-inner">
-          <p className="ps-page-eyebrow">Pill &amp; Smoke Catering</p>
-          <h1 className="ps-page-title">Our Catering Packages</h1>
+          <p className="ps-page-eyebrow">Smoked catering packages</p>
+          <h1 className="ps-page-title">Choose the right smokehouse package for your event</h1>
           <p className="ps-page-lead">
-            Every event cooked over Australian hardwood — low and slow,
-            woodfired, and made to be remembered.
+            From backyard birthdays to weddings and corporate lunches — clear guest ranges,
+            simple per-head pricing, and hardwood-smoked menus built for the Southern Highlands.
           </p>
           <div className="ps-craft-row">
             <CraftPill icon="🔥" label="Australian hardwood" />
@@ -68,9 +68,9 @@ export default function PackagesPage({ onSelectPackage }) {
 
       {/* ── Process strip ── */}
       <div className="ps-process-strip">
-        <ProcessStep n="01" title="Choose your package" body="Browse our five event types and pick the one that fits your occasion." />
+        <ProcessStep n="01" title="Choose your package" body="Compare guest range, price point, inclusions and service style at a glance." />
         <div className="ps-process-divider" aria-hidden="true" />
-        <ProcessStep n="02" title="Tell us about your event" body="Guest count, date, location and any dietary needs — we handle the rest." />
+        <ProcessStep n="02" title="Tell us about your event" body="Send us your date, guest count, location and dietary needs for a tailored quote." />
         <div className="ps-process-divider" aria-hidden="true" />
         <ProcessStep n="03" title="We cook, you celebrate" body="Our team arrives, fires up the hardwood, and delivers a feast worth remembering." />
       </div>
