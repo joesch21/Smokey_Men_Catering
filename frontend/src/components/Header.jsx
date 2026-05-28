@@ -6,6 +6,7 @@ export default function Header({ activePage, setPage }) {
     { id: 'menus',       label: 'Menus' },
     { id: 'ingredients', label: 'Ingredients' },
     { id: 'costings',    label: 'Costings' },
+    { id: 'suppliers',   label: 'Suppliers' },
   ];
 
   return (

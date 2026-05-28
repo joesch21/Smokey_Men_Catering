@@ -6,6 +6,7 @@ import IngredientsPage from './pages/IngredientsPage.jsx';
 import CostingsPage from './pages/CostingsPage.jsx';
 import PackagesPage from './pages/PackagesPage.jsx';
 import PackageDetailPage from './pages/PackageDetailPage.jsx';
+import SuppliersPage from './pages/SuppliersPage.jsx';
 
 export default function App() {
   const [page, setPage] = useState('packages');
@@ -78,6 +79,9 @@ export default function App() {
             onViewMenus={handleViewMenus}
           />
         )}
+
+        {/* Supplier intelligence page */}
+        {page === 'suppliers' && <SuppliersPage />}
 
       </main>
     </div>

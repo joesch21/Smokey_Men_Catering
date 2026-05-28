@@ -9,7 +9,8 @@
       "Public catering packages overview and package detail pages",
       "Seasonal menu cards",
       "Ingredient catalogue by season",
-      "Costing model with package and seasonal variance tables"
+      "Costing model with package and seasonal variance tables",
+      "Read-only supplier intelligence page for local and regional catering supply chain planning"
     ]
   },
   "runtime": {
@@ -34,7 +35,8 @@
       "package detail",
       "menus",
       "ingredients",
-      "costings"
+      "costings",
+      "suppliers"
     ],
     "navigation": "Header page switch state plus package detail selection; no router yet",
     "shared_components_expected": [
@@ -128,7 +130,8 @@
   },
   "notes": [
     "Application identity renamed to Smokey Men Catering before initial Git baseline.",
-    "Phase 3D strengthened the Packages overview with a smokehouse hero composition and local package image assets while preserving backend behavior and package detail layouts."
+    "Phase 3D strengthened the Packages overview with a smokehouse hero composition and local package image assets while preserving backend behavior and package detail layouts.",
+    "Phase 4A added a frontend-only Suppliers page using static MVP supply chain content from the Pill Factory catering plan draft."
   ],
   "git": {
     "remote": "https://github.com/joesch21/Smokey_Men_Catering.git",

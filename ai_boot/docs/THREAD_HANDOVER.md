@@ -124,3 +124,25 @@ Boundary:
 - Frontend-only visual composition change.
 - No backend, routing, auth, persistence, global token, or package detail layout changes.
 
+## Phase 4A — Supplier Intelligence Page
+
+Date: 2026-05-28
+
+Purpose:
+- Add a read-only Suppliers page for important Bundanoon village, regional wholesale, eco packaging, wine, and provenance suppliers.
+
+Completed:
+- Added `frontend/src/pages/SuppliersPage.jsx`.
+- Added `frontend/src/styles/suppliers.css`.
+- Added `Suppliers` to the header navigation.
+- Wired `suppliers` into the existing state-based page switch in `frontend/src/App.jsx`.
+
+Boundary:
+- Frontend-only page addition.
+- No backend, router, auth, persistence, or API contract change.
+- Supplier content is static MVP content sourced from the Pill Factory catering plan draft.
+
+Validation expected:
+- `git diff --check`.
+- `npm --prefix frontend run build`.
+
