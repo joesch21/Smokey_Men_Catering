@@ -25,7 +25,7 @@ export default function Header({ activePage, setPage }) {
             Smokey Men Catering
           </span>
           <span style={{ fontSize: 11, color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 500 }}>
-            Catering
+            Southern Highlands
           </span>
         </div>
         <nav style={{ display: 'flex', gap: 4, marginLeft: 'auto' }}>
