@@ -7,26 +7,26 @@ import "../styles/packages.css";
 
 const packageImages = {
   "weekend-bbq": {
-    src: "/bundanoonnight.png",
+    src: "/package-assets/smokey-weekend-brisket.webp",
     alt: "Bundanoon evening atmosphere anchoring a relaxed Southern Highlands smoked catering package",
     caption: "Bundanoon / Southern Highlands",
   },
   "corporate-weekday": {
-    src: "/preview.webp",
+    src: "/package-assets/smokey-weekend-brisket.webp",
     alt: "Polished smoked catering presentation for corporate lunches, client events and weekday team meals",
     caption: "Corporate / Weekday Service",
   },
   "midweek-dinner": {
-    src: "/smoker.webp",
+    src: "/package-assets/smokey-midweek-service.webp",
     alt: "Hardwood smoker working low and slow for an intimate midweek shared dinner",
     caption: "Hardwood / Low & Slow",
   },
   "birthday-dinner": {
-    src: "/meat2.webp",
+    src: "/package-assets/smokey-celebration-table.webp",
     alt: "Celebration smoked meat centrepiece for a birthday dinner table",
   },
   "wedding": {
-    src: "/BeefCutBrisket-1024x611.jpg.webp",
+    src: "/package-assets/smokey-wedding-feast.webp",
     alt: "Premium smoked brisket suited to a Southern Highlands wedding feast",
   },
 };
@@ -47,6 +47,7 @@ export default function PackagesPage({ onSelectPackage }) {
       {/* ── Page Hero Banner ── */}
       <div className="ps-page-hero">
         <div className="ps-page-hero-inner">
+          <div className="ps-hero-ambient" aria-hidden="true" />
           <p className="ps-page-eyebrow">Bundanoon smokehouse catering</p>
           <h1 className="ps-page-title">Fire. Meat. Smoke. Gathering.</h1>
           <p className="ps-page-lead">

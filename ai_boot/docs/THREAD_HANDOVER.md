@@ -103,3 +103,24 @@ Next recommended phase:
 - Review the live Packages page visually.
 - Then make one small content or CTA improvement at a time.
 
+## Phase 3D — Packages Overview Ambient Composition
+
+Date: 2026-05-28
+
+Purpose:
+- Strengthen the Packages overview landing composition with a smokehouse-style hero panel, warmer ambient colour fields, stronger Weekend package anchoring, and a more coherent package image set.
+
+Completed:
+- Added ambient hero composition styling to `frontend/src/styles/packages.css`.
+- Added `ps-hero-ambient` marker to the Packages overview hero.
+- Updated Packages overview image references to use local package assets under `frontend/public/package-assets/`.
+- Preserved package detail page layouts and backend behavior.
+
+Validation:
+- `git diff --check` passed.
+- `npm --prefix frontend run build` passed.
+
+Boundary:
+- Frontend-only visual composition change.
+- No backend, routing, auth, persistence, global token, or package detail layout changes.
+
