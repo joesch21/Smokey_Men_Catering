@@ -222,3 +222,26 @@ Deployment note:
 - Set `ADMIN_PASSWORD` in Render environment variables.
 - Local default is `smokey-demo-admin` if no environment variable is set.
 \n
+
+## Phase 5B — Render One-Site Deployment Preparation
+
+Date: 2026-05-29
+
+Purpose:
+- Prepare the app for deployment as a single Render Web Service.
+- Express serves both `/api` routes and the built React frontend from `frontend/dist`.
+
+Completed:
+- Added production static serving to `backend/src/index.js`.
+- Added root `package.json` with Render-friendly `build` and `start` scripts.
+- Added `render.yaml` blueprint for optional Render service creation.
+- Preserved existing `/api` routes and frontend Vite local dev proxy.
+
+Boundary:
+- Deployment preparation only.
+- No database, auth framework, router migration, or persistence change.
+- Costings remain protected by the Phase 5A draft admin password guard.
+
+Render note:
+- Set `ADMIN_PASSWORD` in Render environment variables before using the Costings page online.
+

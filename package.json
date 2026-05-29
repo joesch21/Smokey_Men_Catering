@@ -1,0 +1,10 @@
+{
+  "name": "smokey-men-catering",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm --prefix frontend run build",
+    "start": "npm --prefix backend start"
+  }
+}

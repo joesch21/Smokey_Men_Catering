@@ -1,6 +1,6 @@
 {
   "schema": "pill_factory.repo_state.v1",
-  "last_updated": "2026-05-28",
+  "last_updated": "2026-05-29",
   "application": {
     "name": "Smokey Men Catering",
     "stage": "MVP draft",
@@ -27,6 +27,15 @@
     "data": {
       "mode": "in-memory seed data",
       "persistence": "not yet implemented"
+    },
+    "deployment": {
+      "target": "Render Web Service",
+      "shape": "Single Node/Express service serving /api and frontend/dist",
+      "build_command": "npm run build",
+      "start_command": "npm start",
+      "required_env": [
+        "ADMIN_PASSWORD"
+      ]
     }
   },
   "current_frontend_contract": {
@@ -137,7 +146,8 @@
     "Phase 4A added a frontend-only Suppliers page using static MVP supply chain content from the Pill Factory catering plan draft.",
     "Phase 4B aligned public package pricing bands upward and added Costings page context that full-service venue work requires separate costing.",
     "Phase 4C renamed costings into venue model language, added pricing formula clarity, and aligned Costings page terminology with public package bands.",
-    "Phase 5A added a draft admin password guard for Costings using backend ADMIN_PASSWORD and frontend sessionStorage unlock."
+    "Phase 5A added a draft admin password guard for Costings using backend ADMIN_PASSWORD and frontend sessionStorage unlock.",
+    "Phase 5B prepared one-site Render deployment with Express serving the built frontend and API routes."
   ],
   "git": {
     "remote": "https://github.com/joesch21/Smokey_Men_Catering.git",

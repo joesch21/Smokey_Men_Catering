@@ -1,11 +1,16 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { v4 as uuidv4 } from 'uuid';
 import { db } from './data.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'smokey-demo-admin';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const FRONTEND_DIST = path.resolve(__dirname, '../../frontend/dist');
 
 app.use(cors());
 app.use(express.json());
@@ -99,6 +104,14 @@ app.put('/api/costings', requireAdmin, (req, res) => {
 // ── Health ────────────────────────────────────────────────────
 app.get('/api/health', (_req, res) => res.json({ status: 'ok' }));
 
+// ── Production frontend serving ────────────────────────────────
+app.use(express.static(FRONTEND_DIST));
+
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api')) return next();
+  res.sendFile(path.join(FRONTEND_DIST, 'index.html'));
+});
+
 app.listen(PORT, () => {
-  console.log(`\n🔥 Pill Factory API running on http://localhost:${PORT}\n`);
+  console.log(`\n🔥 Smokey Men Catering running on port ${PORT}\n`);
 });
