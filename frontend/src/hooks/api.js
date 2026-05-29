@@ -1,10 +1,34 @@
 const BASE = '/api';
+const ADMIN_PASSWORD_KEY = 'smokey-admin-password';
 
-async function req(path, method = 'GET', body) {
+function getAdminPassword() {
+  if (typeof window === 'undefined') return '';
+  return window.sessionStorage.getItem(ADMIN_PASSWORD_KEY) || '';
+}
+
+export function setAdminPassword(password) {
+  if (typeof window === 'undefined') return;
+  window.sessionStorage.setItem(ADMIN_PASSWORD_KEY, password);
+}
+
+export function clearAdminPassword() {
+  if (typeof window === 'undefined') return;
+  window.sessionStorage.removeItem(ADMIN_PASSWORD_KEY);
+  window.sessionStorage.removeItem('smokey-admin-unlocked');
+}
+
+async function req(path, method = 'GET', body, options = {}) {
+  const headers = { 'Content-Type': 'application/json' };
+
+  if (options.admin) {
+    headers['x-admin-password'] = getAdminPassword();
+  }
+
   const opts = {
     method,
-    headers: { 'Content-Type': 'application/json' },
+    headers,
   };
+
   if (body !== undefined) opts.body = JSON.stringify(body);
   const res = await fetch(BASE + path, opts);
   if (!res.ok) throw new Error(await res.text());
@@ -29,6 +53,6 @@ export const api = {
   deleteMenu: (id) => req(`/menus/${id}`, 'DELETE'),
 
   // Costings
-  getCostings: () => req('/costings'),
-  updateCostings: (data) => req('/costings', 'PUT', data),
+  getCostings: () => req('/costings', 'GET', undefined, { admin: true }),
+  updateCostings: (data) => req('/costings', 'PUT', data, { admin: true }),
 };

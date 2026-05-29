@@ -198,3 +198,27 @@ Validation expected:
 - `python3 -m json.tool ai_boot/REPO_STATE.json`.
 - `npm --prefix frontend run build`.
 \n
+
+## Phase 5A — Draft Admin Password Guard
+
+Date: 2026-05-28
+
+Purpose:
+- Protect internal Costings data before putting the draft site online.
+- Keep the guard lightweight: one shared admin password, no accounts, no persistence layer, no auth framework.
+
+Completed:
+- Added backend `ADMIN_PASSWORD` support and `requireAdmin` middleware.
+- Protected `GET /api/costings` and `PUT /api/costings`.
+- Added frontend admin password storage in `sessionStorage`.
+- Added an admin unlock panel before rendering the Costings page.
+
+Boundary:
+- Draft-level internal guard only.
+- Not production-grade authentication.
+- No database, users, JWT, OAuth, router, or persistence change.
+
+Deployment note:
+- Set `ADMIN_PASSWORD` in Render environment variables.
+- Local default is `smokey-demo-admin` if no environment variable is set.
+\n

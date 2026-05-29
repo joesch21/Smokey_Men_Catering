@@ -4,10 +4,25 @@ import { v4 as uuidv4 } from 'uuid';
 import { db } from './data.js';
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'smokey-demo-admin';
 
 app.use(cors());
 app.use(express.json());
+
+function requireAdmin(req, res, next) {
+  const supplied = req.get('x-admin-password');
+
+  if (!ADMIN_PASSWORD) {
+    return res.status(500).json({ error: 'Admin password is not configured' });
+  }
+
+  if (supplied !== ADMIN_PASSWORD) {
+    return res.status(401).json({ error: 'Admin password required' });
+  }
+
+  next();
+}
 
 // ── Seasons ─────────────────────────────────────────────────
 app.get('/api/seasons', (_req, res) => res.json(db.seasons));
@@ -74,9 +89,9 @@ app.delete('/api/menus/:id', (req, res) => {
 });
 
 // ── Costings ─────────────────────────────────────────────────
-app.get('/api/costings', (_req, res) => res.json(db.costings));
+app.get('/api/costings', requireAdmin, (_req, res) => res.json(db.costings));
 
-app.put('/api/costings', (req, res) => {
+app.put('/api/costings', requireAdmin, (req, res) => {
   Object.assign(db.costings, req.body);
   res.json(db.costings);
 });

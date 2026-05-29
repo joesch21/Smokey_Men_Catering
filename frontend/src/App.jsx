@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { api } from './hooks/api.js';
+import { api, setAdminPassword, clearAdminPassword } from './hooks/api.js';
 import Header from './components/Header.jsx';
 import MenusPage from './pages/MenusPage.jsx';
 import IngredientsPage from './pages/IngredientsPage.jsx';
@@ -8,12 +8,125 @@ import PackagesPage from './pages/PackagesPage.jsx';
 import PackageDetailPage from './pages/PackageDetailPage.jsx';
 import SuppliersPage from './pages/SuppliersPage.jsx';
 
+function AdminUnlock({ onUnlocked }) {
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+  const [checking, setChecking] = useState(false);
+
+  async function submit(e) {
+    e.preventDefault();
+    setChecking(true);
+    setMessage('');
+
+    try {
+      setAdminPassword(password);
+      await api.getCostings();
+      window.sessionStorage.setItem('smokey-admin-unlocked', 'yes');
+      onUnlocked();
+    } catch {
+      clearAdminPassword();
+      setMessage('That password did not unlock the internal costing page.');
+    } finally {
+      setChecking(false);
+    }
+  }
+
+  return (
+    <section style={{
+      maxWidth: 520,
+      margin: '3rem auto',
+      padding: '1.35rem',
+      border: '0.5px solid var(--border)',
+      borderRadius: 'var(--radius-lg)',
+      background: 'var(--bg-card)',
+      boxShadow: 'var(--shadow-sm)',
+    }}>
+      <p style={{
+        margin: '0 0 0.4rem',
+        fontSize: 11,
+        fontWeight: 700,
+        letterSpacing: '0.09em',
+        textTransform: 'uppercase',
+        color: 'var(--text-tertiary)',
+      }}>
+        Internal access
+      </p>
+      <h1 style={{
+        margin: 0,
+        fontFamily: 'var(--font-display)',
+        fontSize: 28,
+        fontWeight: 400,
+        color: 'var(--text-primary)',
+      }}>
+        Costings are admin-only for the draft site.
+      </h1>
+      <p style={{
+        margin: '0.65rem 0 1rem',
+        fontSize: 13,
+        lineHeight: 1.55,
+        color: 'var(--text-secondary)',
+      }}>
+        Enter the draft admin password to view pricing assumptions, margins and internal costing notes.
+      </p>
+      <form onSubmit={submit} style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Admin password"
+          style={{
+            flex: 1,
+            minWidth: 0,
+            padding: '0.65rem 0.8rem',
+            border: '0.5px solid var(--border)',
+            borderRadius: 'var(--radius-md)',
+            fontFamily: 'var(--font-body)',
+            fontSize: 13,
+          }}
+        />
+        <button
+          type="submit"
+          disabled={checking || !password}
+          style={{
+            padding: '0.65rem 0.95rem',
+            border: '0.5px solid var(--border)',
+            borderRadius: 'var(--radius-md)',
+            background: 'var(--text-primary)',
+            color: '#fff',
+            cursor: checking || !password ? 'not-allowed' : 'pointer',
+            fontFamily: 'var(--font-body)',
+            fontSize: 13,
+            fontWeight: 700,
+          }}
+        >
+          {checking ? 'Checking…' : 'Unlock'}
+        </button>
+      </form>
+      {message && (
+        <p style={{
+          margin: '0.75rem 0 0',
+          fontSize: 12,
+          color: '#A33A1A',
+        }}>
+          {message}
+        </p>
+      )}
+    </section>
+  );
+}
+
+
 export default function App() {
   const [page, setPage] = useState('packages');
   const [seasons, setSeasons] = useState([]);
   const [error, setError] = useState(null);
   const [selectedPackageId, setSelectedPackageId] = useState(null);
   const [activeSeasonId, setActiveSeasonId] = useState(null);
+  const [adminUnlocked, setAdminUnlocked] = useState(() => (
+    typeof window !== 'undefined'
+      && window.sessionStorage.getItem('smokey-admin-unlocked') === 'yes'
+      && Boolean(window.sessionStorage.getItem('smokey-admin-password'))
+  ));
 
   useEffect(() => {
     api.getSeasons()
@@ -64,7 +177,11 @@ export default function App() {
                   />
                 )}
                 {page === 'ingredients' && <IngredientsPage seasons={seasons} />}
-                {page === 'costings'    && <CostingsPage />}
+                {page === 'costings' && (
+                  adminUnlocked
+                    ? <CostingsPage />
+                    : <AdminUnlock onUnlocked={() => setAdminUnlocked(true)} />
+                )}
               </>
         )}
 

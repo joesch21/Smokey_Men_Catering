@@ -84,7 +84,8 @@
     "costings": [
       "GET /api/costings",
       "PUT /api/costings"
-    ]
+    ],
+    "costings_guard": "GET /api/costings and PUT /api/costings require x-admin-password matching ADMIN_PASSWORD."
   },
   "known_gaps": [
     "Persistence is not yet implemented; backend mutates in-memory db.",
@@ -135,7 +136,8 @@
     "Phase 3D strengthened the Packages overview with a smokehouse hero composition and local package image assets while preserving backend behavior and package detail layouts.",
     "Phase 4A added a frontend-only Suppliers page using static MVP supply chain content from the Pill Factory catering plan draft.",
     "Phase 4B aligned public package pricing bands upward and added Costings page context that full-service venue work requires separate costing.",
-    "Phase 4C renamed costings into venue model language, added pricing formula clarity, and aligned Costings page terminology with public package bands."
+    "Phase 4C renamed costings into venue model language, added pricing formula clarity, and aligned Costings page terminology with public package bands.",
+    "Phase 5A added a draft admin password guard for Costings using backend ADMIN_PASSWORD and frontend sessionStorage unlock."
   ],
   "git": {
     "remote": "https://github.com/joesch21/Smokey_Men_Catering.git",
