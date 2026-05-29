@@ -172,3 +172,29 @@ Validation expected:
 Next recommended phase:
 - Consider a future costing model split into food, labour, transport/equipment, linen/consumables, risk buffer, target margin and recommended sell price per head.
 
+## Phase 4C — Costing Model Naming and Formula Clarity
+
+Date: 2026-05-28
+
+Purpose:
+- Rename generic Package A / Package B costings into venue model language.
+- Explain how pricing should be calculated from food, labour, equipment, linen, risk buffer and target margin.
+- Align Costings page language with the public Packages page.
+
+Completed:
+- Renamed backend costing labels to `Venue Model — Full Weekend Residential` and `Venue Model — Celebration Event`.
+- Updated Costings summary card labels.
+- Added a pricing formula explainer to the Costings page.
+- Added a public package bands vs venue costing models table.
+- Corrected public `priceFrom` consistency for Midweek Major Meal and Birthday Dinner.
+
+Boundary:
+- Naming, explanation and static pricing alignment only.
+- No backend route changes.
+- No persistence, router, auth, or dynamic costing engine refactor.
+
+Validation expected:
+- `git diff --check`.
+- `python3 -m json.tool ai_boot/REPO_STATE.json`.
+- `npm --prefix frontend run build`.
+\n

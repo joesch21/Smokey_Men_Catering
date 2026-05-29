@@ -48,7 +48,8 @@
     "notes": [
       "Packages page now uses sales-led copy and reduced image dominance while preserving the warm editorial visual system.",
       "Packages overview now uses local package-assets imagery and ambient smokehouse composition for the landing page.",
-      "Package prices are public starting bands; Costings page is the internal model for venue-specific full-service economics."
+      "Package prices are public starting bands; Costings page is the internal model for venue-specific full-service economics.",
+      "Costings page distinguishes public package starting bands from venue-specific residential and celebration costing models."
     ]
   },
   "design_guardrails": {
@@ -133,7 +134,8 @@
     "Application identity renamed to Smokey Men Catering before initial Git baseline.",
     "Phase 3D strengthened the Packages overview with a smokehouse hero composition and local package image assets while preserving backend behavior and package detail layouts.",
     "Phase 4A added a frontend-only Suppliers page using static MVP supply chain content from the Pill Factory catering plan draft.",
-    "Phase 4B aligned public package pricing bands upward and added Costings page context that full-service venue work requires separate costing."
+    "Phase 4B aligned public package pricing bands upward and added Costings page context that full-service venue work requires separate costing.",
+    "Phase 4C renamed costings into venue model language, added pricing formula clarity, and aligned Costings page terminology with public package bands."
   ],
   "git": {
     "remote": "https://github.com/joesch21/Smokey_Men_Catering.git",

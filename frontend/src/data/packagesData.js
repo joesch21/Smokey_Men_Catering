@@ -83,7 +83,7 @@ export const packages = [
     icon: "🍽️",
     heroDescription:
       "Not every great meal happens on a weekend. Our midweek package brings the full Smokey Men Catering experience to dinner parties, team nights out and special occasion dinners from Tuesday to Thursday.",
-    priceFrom: 75,
+    priceFrom: 55,
     priceUnit: "per head",
     minGuests: 10,
     maxGuests: 60,
@@ -116,7 +116,7 @@ export const packages = [
     icon: "🎂",
     heroDescription:
       "Make it memorable. Our birthday dinner package is designed for smaller gatherings wanting a relaxed, flavour-first experience centred around a stunning smoked centrepiece. We handle the food, you enjoy the moment.",
-    priceFrom: 55,
+    priceFrom: 75,
     priceUnit: "per head",
     minGuests: 8,
     maxGuests: 40,

@@ -122,7 +122,7 @@ export const db = {
 
   costings: {
     packageA: {
-      label: 'Package A — Full Weekend Residential (Fri–Sun), 36 pax',
+      label: 'Venue Model — Full Weekend Residential (Fri–Sun), 36 pax',
       lines: [
         { label: 'Food cost', low: 2220, high: 2900, note: 'Flemington markets sourced morning of event' },
         { label: 'Staffing (2 chefs + 2–3 FOH)', low: 1200, high: 1600, note: '2 chefs + kitchen hand + FOH' },
@@ -133,7 +133,7 @@ export const db = {
       ],
     },
     packageB: {
-      label: 'Package B — Celebration Event (Birthday / Wedding), 36 pax',
+      label: 'Venue Model — Celebration Event (Birthday / Wedding), 36 pax',
       lines: [
         { label: 'Canapés + dinner food', low: 1400, high: 1800, note: 'Single event day' },
         { label: 'Staffing (2 chefs + 2 FOH)', low: 900, high: 1200, note: '2 chefs + 2 FOH' },

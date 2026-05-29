@@ -139,10 +139,126 @@ export default function CostingsPage() {
         </p>
       </Card>
 
+      <Card style={{
+        marginBottom: '1.5rem',
+        padding: '1rem 1.25rem',
+        borderColor: 'rgba(104, 67, 43, 0.18)',
+      }}>
+        <p style={{
+          margin: '0 0 0.35rem',
+          fontSize: 11,
+          fontWeight: 700,
+          letterSpacing: '0.09em',
+          textTransform: 'uppercase',
+          color: 'var(--text-tertiary)',
+        }}>
+          Pricing formula
+        </p>
+        <h2 style={{
+          margin: 0,
+          fontFamily: 'var(--font-display)',
+          fontSize: 22,
+          fontWeight: 400,
+          color: 'var(--text-primary)',
+        }}>
+          Sell price = total service cost ÷ retained cost percentage.
+        </h2>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))',
+          gap: 10,
+          marginTop: '0.9rem',
+        }}>
+          {[
+            { label: 'Base cost', value: 'food + labour + transport + equipment + linen' },
+            { label: 'Risk buffer', value: 'weather, smoker SLA, extra travel, guest changes' },
+            { label: 'Target margin', value: 'usually 35–45% for staffed venue work' },
+            { label: 'Per-head check', value: 'recommended sell price ÷ confirmed guest count' },
+          ].map((item) => (
+            <div key={item.label} style={{
+              padding: '0.85rem',
+              border: '0.5px solid var(--border)',
+              borderRadius: 'var(--radius-md)',
+              background: 'var(--bg-card)',
+            }}>
+              <strong style={{
+                display: 'block',
+                fontFamily: 'var(--font-body)',
+                fontSize: 12,
+                color: 'var(--text-primary)',
+                marginBottom: 4,
+              }}>
+                {item.label}
+              </strong>
+              <span style={{ fontSize: 12, lineHeight: 1.45, color: 'var(--text-secondary)' }}>
+                {item.value}
+              </span>
+            </div>
+          ))}
+        </div>
+        <p style={{
+          margin: '0.85rem 0 0',
+          fontSize: 12,
+          lineHeight: 1.55,
+          color: 'var(--text-tertiary)',
+        }}>
+          Example: if total service cost is $3,750 and target gross margin is 35%, sell price is
+          $3,750 ÷ 0.65 = $5,769, or about $160/head for 36 guests.
+        </p>
+      </Card>
+
+      <SectionLabel>Public package bands vs venue costing models</SectionLabel>
+      <Card style={{ padding: 0, overflow: 'hidden', marginBottom: '1.5rem' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+          <thead>
+            <tr style={{ background: 'var(--bg-secondary)' }}>
+              {['Offer', 'Public role', 'Starting band', 'Costing treatment'].map((h) => (
+                <th key={h} style={{
+                  padding: '8px 12px',
+                  fontSize: 12,
+                  fontWeight: 500,
+                  color: 'var(--text-secondary)',
+                  borderBottom: '0.5px solid var(--border)',
+                  textAlign: 'left',
+                }}>
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ['Weekend Smoke & Fire', 'Casual smoked feast / large gatherings', 'from $45 pp', 'Entry package band; labour and travel confirmed at quote'],
+              ['Corporate Lunch & Dinner', 'Weekday professional service', 'from $58 pp', 'Higher presentation and dietary handling load'],
+              ['Midweek Major Meal', 'Small group shared dinner', 'from $55 pp', 'Small-group labour economics need checking'],
+              ['Birthday Dinner', 'Celebration dinner service', 'from $75 pp', 'Service-heavy; closer to venue celebration model'],
+              ['Wedding Feast', 'Premium wedding service', 'from $95 pp', 'Quote-led; can move toward $125+ pp with full service'],
+              ['Venue Residential Model', 'Pill Factory-style whole-property weekend', '$200–$236 pp model', 'Separate venue costing model, not generic package pricing'],
+            ].map((row) => (
+              <tr key={row[0]}>
+                {row.map((cell, idx) => (
+                  <td key={cell} style={{
+                    padding: '9px 12px',
+                    fontSize: idx === 0 ? 13 : 12,
+                    fontWeight: idx === 0 ? 500 : 400,
+                    color: idx === 0 ? 'var(--text-primary)' : 'var(--text-secondary)',
+                    borderBottom: '0.5px solid var(--border)',
+                    verticalAlign: 'top',
+                    lineHeight: 1.45,
+                  }}>
+                    {cell}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </Card>
+
       {/* Summary */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(180px,1fr))', gap: 10, marginBottom: '1.5rem' }}>
-        <MetricCard label="Package A sell price" value={sellA ? `${fmt(sellA.low)}–${fmt(sellA.high)}` : '—'} sub="Full weekend, 36 pax" />
-        <MetricCard label="Package B sell price" value={sellB ? `${fmt(sellB.low)}–${fmt(sellB.high)}` : '—'} sub="Celebration event, 36 pax" />
+        <MetricCard label="Residential model sell price" value={sellA ? `${fmt(sellA.low)}–${fmt(sellA.high)}` : '—'} sub="Venue weekend, 36 pax" />
+        <MetricCard label="Celebration model sell price" value={sellB ? `${fmt(sellB.low)}–${fmt(sellB.high)}` : '—'} sub="Venue event, 36 pax" />
         <MetricCard label="Best margin season" value="Winter" sub="~61% gross margin" />
         <MetricCard label="Flemington pickup" value="4 am" sub="Sydney departure for 10am arrival" />
       </div>
