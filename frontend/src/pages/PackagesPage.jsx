@@ -107,9 +107,9 @@ export default function PackagesPage({ onSelectPackage }) {
       {/* ── Footer CTA ── */}
       <div className="ps-footer-cta">
         <p className="ps-footer-cta-text">Not sure which package suits your event?</p>
-        <button className="ps-btn-outline" onClick={() => onSelectPackage("enquire")}>
+        <a className="ps-btn-outline" href="mailto:smokeymenbookings@gmail.com?subject=Smokey%20Men%20Catering%20booking%20enquiry&body=Hi Smokey Men Catering,%0D%0A%0D%0AI would like to enquire about catering for an event.%0D%0A%0D%0AEvent date:%0D%0AGuest count:%0D%0ALocation:%0D%0APackage of interest:%0D%0A%0D%0AThanks,">
           Get in touch
-        </button>
+        </a>
       </div>
 
     </div>

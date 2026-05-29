@@ -235,7 +235,7 @@ export default function PackageDetailPage({ packageId, onBack, onViewMenus }) {
                 tailored quote within one business day.
               </p>
               <a
-                href={`mailto:hello@smokeymencatering.com.au?subject=Enquiry: ${pkg.title}`}
+                href={`mailto:smokeymenbookings@gmail.com?subject=Smokey%20Men%20Catering%20booking%20enquiry%20-%20${pkg.title}`}
                 className="psd-btn-primary"
                 style={{ background: accent }}
               >
